@@ -1,16 +1,8 @@
 {% extends "basic.html" %}
 
-{% block css %}
-<style type="text/css">
-.fb-video {
-    max-width: none !important;
-}
-</style>
-{% endblock %}
-
-{% block script %}
+{% block body %}
 <script type="text/javascript">
-var HEADER_HEIGHT = 56;
+var HEADER_HEIGHT = document.querySelector('[data-js-header]').offsetHeight;
 var VIDEO_ASPECT = 1.79; // aspect ratio of the video
 var HEADER_HEIGHT_OFFSET = HEADER_HEIGHT * 1.2;
 
