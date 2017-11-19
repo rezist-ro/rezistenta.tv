@@ -5,3 +5,4 @@
 *.pyc
 supervisord.log
 supervisord.pid
+static/assets
