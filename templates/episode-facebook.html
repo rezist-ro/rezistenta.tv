@@ -1,0 +1,49 @@
+{% extends "basic.html" %}
+
+{% block css %}
+<style type="text/css">
+.fb-video {
+    max-width: none !important;
+}
+</style>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript">
+var VIDEO_ASPECT = 1.79; // aspect ratio of the video
+var HEADER_HEIGHT_OFFSET = HEADER_HEIGHT * 1.2;
+    
+window.fbAsyncInit = function() {
+    function available(width, height) {
+        return Math.round(Math.min(width, height * VIDEO_ASPECT));
+    };
+
+    // spawn
+    var container = document.createElement("main");
+    var initial_size = available(window.innerWidth, window.innerHeight - HEADER_HEIGHT_OFFSET);
+    container.innerHTML = '<div class="fb-video" data-href="{{ episode.fb }}" data-allowfullscreen="1" data-autoplay="1" data-width="' + initial_size + '" data-show-text="false">\
+            <div class="fb-xfbml-parse-ignore">\
+                Loading\
+            </div>\
+        </div>\
+    ';
+
+    var video = container.firstChild;
+    document.body.appendChild(container);
+
+    // resize
+    function resize() {
+        var width = window.innerWidth;
+        var height = window.innerHeight - HEADER_HEIGHT_OFFSET;
+        var factor = available(width, height) / initial_size;
+
+        var marginX = (width - video.offsetWidth) / 2;
+        var marginY = (height - video.offsetHeight) / 2;
+        video.style.transform = "translate(" + marginX + "px, " + marginY + "px) " +
+                                 "scale(" + factor + ")";
+    }
+    window.addEventListener("resize", resize);
+    setInterval(resize, 100);
+};
+</script>
+{% endblock %}
