@@ -1,142 +1,26 @@
-html, body, main {
+html,
+body {
     width: 100%;
     height: 100%;
     margin: 0;
     padding: 0;
     background: black;
     overflow: hidden;
+    line-height: 1.4;
+    font-family: 'Open Sans', sans-serif;
+    color: map-get($colors, main);
 }
 
-header {
-    width: 50px;
-    background: black;
-}
 
-main {
-    overflow: visible;
-}
-
-.logo {
-    width: 136px;
-    height: 33px;
-    margin: 17px 0 0px 20px;
-}
-
-.hamburger, .close {
-    background: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-
-    display: inline-block;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-
-    padding: 5px 0px 0px 0px;
-    border: 0;
-    outline: none;
-
-    color: #999;
-    font: bold 45px monospace;
-    line-height: 45px;
-    cursor: pointer;
-}
-
-menu {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 50px;
-    bottom: 0;
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
     box-sizing: border-box;
-    z-index: 1;
-
-    background: rgba(0, 0, 0, 0.4);
-    color: white;
-    overflow: scroll;
 }
 
-.media {
-    display: block;
-    min-height: 200px;
-    padding: 15px;
-    margin: 10px;
-    box-sizing: border-box;
-
-    background: rgba(32, 32, 40, 0.5);
-    border-radius: 20px;
-    box-shadow: inset 0 0 5px rgba(64, 64, 80, 0.8),
-                0 0 5px rgba(64, 64, 80, 0.8);
-    position: relative;
-}
-
-@media (min-width: 400px) {
-    menu {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .media {
-        flex: 0 0 380px;
-    }
-}
-
-img.thumb {
-    max-width: 100%;
-    min-height: 150px;
-    height: auto;
-    display: block
-}
-
-a.absolute {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
 
 .yt-video {
     width: 100%;
-    margin: 0;
-    padding: 0;
-}
-
-h5 {
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    font-family: sans-serif;
-    text-align: center;
-}
-
-dl {
-    margin: 0;
-    padding: 0;
-    font-size: 12px;
-    font-family: sans-serif;
-}
-
-dt:first-child:before {
-    content: "cu ";
-}
-
-dt:not(:first-child):before {
-    content: "și ";
-}
-
-dl .wrap {
-    display: block;
-}
-
-dt, dd {
-    display: inline-block;
     margin: 0;
     padding: 0;
 }

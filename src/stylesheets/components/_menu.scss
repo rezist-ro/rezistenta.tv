@@ -1,0 +1,114 @@
+.menu {
+  position: fixed;
+  top: $header-height;
+  height: calc(80% - #{$header-height});
+  margin: 0;
+  padding: 1rem 0;
+  z-index: map-get($z-index, menu);
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: all 500ms ease;
+  transition-property: transform opacity;
+  overflow: scroll;
+  background: map-get($colors, contrast);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-bottom: 0.25rem solid map-get($colors, accent-contrast);
+  box-shadow: 0px 0px 3.75rem 3.75rem rgba(0,0,0,0.8);
+
+  &.is-active {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.menu__item {
+  width: 100%;
+  max-width: 30rem;
+  padding: 1rem;
+  color: inherit;
+  transition: color 300ms ease;
+  text-decoration: none;
+
+  @include from(mobile-large) {
+    width: 50%;
+  }
+
+  @include from(tablet-large) {
+    width: 33.33%;
+  }
+
+  @include from(desktop-medium) {
+    width: 25%;
+  }
+}
+
+
+.menu__item-thumb {
+  display: block;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  position: relative;
+  transition: transform 300ms ease;
+  transform-origin: center center;
+
+  .menu__item:hover & {
+    transform: scale(1.05);
+  }
+}
+
+.menu__item-thumb img {
+  display: block;
+  width: 100%;
+}
+
+.menu__item-title {
+  display: block;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 300ms ease;
+  transition-property: color;
+
+  .menu__item:hover & {
+    color: map-get($colors, accent-contrast);
+  }
+}
+
+.menu__item-number {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: map-get($colors, contrast);
+  padding: 0 0.5rem;
+  height: 2rem;
+  line-height: 2rem;
+  font-size: 0.75rem;
+  text-align: center;
+  background: map-get($colors, accent-contrast);
+  border-radius: 0 0 25% 0;
+}
+
+.menu__item-details {
+    margin: 0;
+    padding: 0;
+    font-size: 0.75rem;
+    color: rgba(map-get($colors, main), 0.6);
+    font-family: sans-serif;
+}
+
+.menu__item-details dt:first-child:before {
+    content: attr(data-with);
+}
+
+.menu__item-details dt:not(:first-child):before {
+    content: attr(data-and);
+}
+
+.menu__item-details dt,
+.menu__item-details dd {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+}
+

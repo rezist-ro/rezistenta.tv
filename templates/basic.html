@@ -9,38 +9,18 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600" rel="stylesheet">
         <link href="static/assets/stylesheets/style.css" media="all" rel="stylesheet" />
 
         {% block css %}{% endblock %}
     </head>
     <body>
         <div id="fb-root"></div>
-        <script type="text/javascript">
-var HEADER_HEIGHT = 50;
-
-window.addEventListener("DOMContentLoaded", function() {
-    var hamburger = document.querySelector(".hamburger");
-    var close = document.querySelector(".close");
-    var menu = document.querySelector("menu");
-
-    close.style.display = "none";
-    menu.style.display = "none";
-
-    hamburger.addEventListener("click", function(e) {
-        e.preventDefault();
-        hamburger.style.display = "none";
-        menu.style.display = close.style.display = "";
-    });
-
-    close.addEventListener("click", function(e) {
-        e.preventDefault();
-        hamburger.style.display = "";
-        menu.style.display = close.style.display = "none";
-    });
-});
-        </script>
         {% block script %}{% endblock %}
         <script type="text/javascript">
+            var HEADER_HEIGHT = 50;
+
+
 (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
     if (d.getElementById(id)) return;
@@ -49,28 +29,32 @@ window.addEventListener("DOMContentLoaded", function() {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
         </script>
-        <header>
-            <button class="hamburger">&equiv;</button>
-            <button class="close">&times;</button>
-            <img class="logo" src="static/logo.png">
+        <header class="header">
+            <img class="header__logo" src="static/logo.png">
+
+            <button class="header__control" data-js-menu-control data-control-inactive="&equiv;" data-control-active="&times;"></button>
         </header>
-        <menu>
+        <menu class="menu" data-js-menu>
             {% for episode in episodes %}
-            <div class="media">
-                <h5 class="mt-0">#{{ episodes|length - loop.index + 1 }} {{ episode.title }}</h5>
-                <img class="thumb" src="static/thumbs/{{ episodes|length - loop.index + 1 }}.jpeg" alt="Se încarcă">
-                <dl>
+            <a class="menu__item" href="/episod/{{ episodes|length - loop.index + 1 }}">
+                <span class="menu__item-thumb">
+                    <span class="menu__item-number">#{{ episodes|length - loop.index + 1 }}</span>
+                    <img src="static/thumbs/{{ episodes|length - loop.index + 1 }}.jpeg" alt="Se încarcă">
+                </span>
+
+                <span class="menu__item-title">{{ episode.title }}</span>
+                <dl class="menu__item-details">
                     {% for guest in episode.guests %}
-                    <dt>{{ guest.name }}</dt>
+                    <dt data-with="cu " data-and="și ">{{ guest.name }}</dt>
                     {%- if guest.profession -%}
                         ,&nbsp;<dd>{{ guest.profession }}</dd>
                     {%- endif -%}
                     {% endfor %}
                 </dl>
-                <a class="absolute" href="/episod/{{ episodes|length - loop.index + 1 }}"></a>
-            </div>
+            </a>
             {% endfor %}
         </menu>
         {% block body %}{% endblock %}
+        <script src="static/assets/javascripts/application.js"></script>
     </body>
 </html>

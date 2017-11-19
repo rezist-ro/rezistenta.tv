@@ -1,0 +1,52 @@
+.header {
+  width: 100%;
+  background: map-get($colors, main);
+  height: $header-height;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  justify-content: space-between;
+  border-bottom: 2px solid map-get($colors, accent);
+  position: relative;
+  z-index: map-get($z-index, header);
+}
+
+
+.header__logo {
+  display: block;
+  height: ($header-height - 1rem);
+}
+
+.header__control {
+  display: block;
+  background: none;
+  height: ($header-height - 1rem);
+  border: 0;
+  padding: 0;
+
+  color: map-get($colors, accent);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  transition: color 300ms ease;
+
+  &::before {
+    font-size: 3rem;
+    line-height: ($header-height - 1rem);
+    content: attr(data-control-inactive);
+    width: 3rem;
+    text-align: center;
+    display: block;
+  }
+
+  &.is-active::before {
+    content: attr(data-control-active);
+    font-size: 2rem;
+  }
+
+  &:hover {
+    color: map-get($colors, accent-contrast);
+  }
+}

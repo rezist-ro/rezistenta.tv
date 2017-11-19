@@ -1,3 +1,7 @@
 @import '../../node_modules/normalize.css/normalize';
+@import '../../node_modules/rs-breakpoints/index';
+
+@import 'variables';
 
 @import 'general/index';
+@import 'components/index';

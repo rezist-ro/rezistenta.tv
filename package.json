@@ -47,6 +47,7 @@
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
     "normalize.css": "^7.0.0",
+    "rs-breakpoints": "0.0.5",
     "watchify": "^3.9.0"
   }
 }
