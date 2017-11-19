@@ -16,7 +16,6 @@ EPISODES = yaml.load(open("episodes.yaml").read())
 
 
 app = flask.Flask(__name__)
-app.config.SERVER_NAME = "https://fhannqzviw.localtunnel.me/"
 
 app.jinja_env.filters["strftime"] = \
     lambda str, fmt: dateutil.parser.parse(str).strftime(fmt)

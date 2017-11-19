@@ -7,8 +7,6 @@
         <meta name="keywords" content="emisiune,live,rezistența,tv,360">
         <link rel="icon" href="/favicon.ico" type="image/icon">
 
-        <base href="{{ config.SERVER_NAME }}">
-
         {% block facebook %}{% endblock %}
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -200,13 +198,13 @@ window.addEventListener("DOMContentLoaded", function() {
         <header>
             <button class="hamburger">&equiv;</button>
             <button class="close">&times;</button>
-            <img class="logo" src="static/logo.png">
+            <img class="logo" src="/static/logo.png">
         </header>
         <menu>
             {% for episode in episodes %}
             <div class="media">
                 <h5 class="mt-0">#{{ episodes|length - loop.index + 1 }} {{ episode.title }}</h5>
-                <img class="thumb" src="static/thumbs/{{ episodes|length - loop.index + 1 }}.jpeg" alt="Se încarcă">
+                <img class="thumb" src="/static/thumbs/{{ episodes|length - loop.index + 1 }}.jpeg" alt="Se încarcă">
                 <dl>
                     {% for guest in episode.guests %}
                     <dt>{{ guest.name }}</dt>
