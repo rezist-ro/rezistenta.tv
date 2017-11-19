@@ -29,7 +29,7 @@ def favicon():
     return flask.send_from_directory(
         STATIC,
         "favicon.ico",
-        mimetype="image/png")
+        mimetype="image/icon")
 
 
 @app.route("/")
