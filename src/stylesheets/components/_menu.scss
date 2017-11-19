@@ -30,6 +30,7 @@
   color: inherit;
   transition: color 300ms ease;
   text-decoration: none;
+  position: relative;
 
   @include from(mobile-large) {
     width: 50%;
@@ -44,6 +45,14 @@
   }
 }
 
+.menu__item-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 50px;
+  z-index: map-get($z-index, menu-blocklink);
+}
 
 .menu__item-thumb {
   display: block;
@@ -53,7 +62,7 @@
   transition: transform 300ms ease;
   transform-origin: center center;
 
-  .menu__item:hover & {
+  a:hover + & {
     transform: scale(1.05);
   }
 }
@@ -70,7 +79,7 @@
   transition: all 300ms ease;
   transition-property: color;
 
-  .menu__item:hover & {
+  a:hover + span + & {
     color: map-get($colors, accent-contrast);
   }
 }
@@ -112,3 +121,15 @@
     padding: 0;
 }
 
+.menu__item-details a {
+  text-decoration: underline;
+
+  color: map-get($colors, main);
+  &:visited {
+    color: map-get($colors, main);
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}

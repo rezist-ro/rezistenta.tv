@@ -6,3 +6,4 @@
 supervisord.log
 supervisord.pid
 static/assets
+node_modules
