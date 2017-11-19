@@ -10,9 +10,10 @@
 
 {% block script %}
 <script type="text/javascript">
+var HEADER_HEIGHT = 56;
 var VIDEO_ASPECT = 1.79; // aspect ratio of the video
 var HEADER_HEIGHT_OFFSET = HEADER_HEIGHT * 1.2;
-    
+
 window.fbAsyncInit = function() {
     function available(width, height) {
         return Math.round(Math.min(width, height * VIDEO_ASPECT));
