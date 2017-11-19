@@ -110,12 +110,15 @@ img.thumb {
     display: block
 }
 
+a, a:active, a:visited { color: white; text-decoration: none; }
+a:hover { text-decoration: underline;  }
+
 a.absolute {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    bottom: 50px;
     margin: 0;
     padding: 0;
 }
@@ -211,7 +214,13 @@ window.addEventListener("DOMContentLoaded", function() {
                     {% for guest in episode.guests %}
                     <dt>{{ guest.name }}</dt>
                     {%- if guest.profession -%}
-                        ,&nbsp;<dd>{{ guest.profession }}</dd>
+                        ,&nbsp;<dd>
+                            {%- if guest.url %}<a target="_blank" href="{{ guest.url }}">{% endif -%}
+
+                            {{ guest.profession }}
+
+                            {%- if guest.url -%}</a>{% endif %}
+                            </dd>
                     {%- endif -%}
                     {% endfor %}
                 </dl>
