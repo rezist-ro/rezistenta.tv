@@ -46,6 +46,7 @@
     "gulp-tap": "^1.0.1",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
+    "normalize.css": "^7.0.0",
     "watchify": "^3.9.0"
   }
 }
