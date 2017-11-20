@@ -35,7 +35,8 @@ def favicon():
 def home():
     return flask.render_template("pages/home.html",
         playlist=os.environ["PLAYLIST"],
-        episodes=EPISODES)
+        episodes=EPISODES,
+        autoplay=not app.debug)
 
 
 @app.route("/episod/<int:number>")
