@@ -7,8 +7,8 @@ paths.source.javascripts = `${paths.source.root}/javascripts`;
 
 paths.dest = {};
 paths.dest.root = 'static/assets';
-paths.dest.stylesheets = `${paths.dest.root}/stylesheets`;
-paths.dest.javascripts = `${paths.dest.root}/javascripts`;
+paths.dest.stylesheets = `${paths.dest.root}/css`;
+paths.dest.javascripts = `${paths.dest.root}/js`;
 
 paths.nodeModules = {};
 paths.nodeModules.root = 'node_modules';

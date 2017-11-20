@@ -1,0 +1,27 @@
+<menu class="menu" data-js-menu>
+    {% for episode in episodes %}
+    <div class="menu__item">
+        <a class="menu__item-link" href="/episod/{{ episodes|length - loop.index + 1 }}"></a>
+        <span class="menu__item-thumb">
+            <span class="menu__item-number">#{{ episodes|length - loop.index + 1 }}</span>
+            <img src="/static/thumbs/{{ episodes|length - loop.index + 1 }}.jpeg" alt="Se încarcă">
+        </span>
+
+        <span class="menu__item-title">{{ episode.title }}</span>
+        <dl class="menu__item-details">
+            {% for guest in episode.guests %}
+            <dt data-with="cu " data-and="și ">{{ guest.name }}</dt>
+            {%- if guest.profession -%}
+                ,&nbsp;<dd>
+                    {%- if guest.url %}<a class="menu__item-backlink" target="_blank" href="{{ guest.url }}">{% endif -%}
+
+                    {{ guest.profession }}
+
+                    {%- if guest.url -%}</a>{% endif %}
+                    </dd>
+            {%- endif -%}
+            {% endfor %}
+        </dl>
+    </div>
+    {% endfor %}
+</menu>

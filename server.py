@@ -33,7 +33,7 @@ def favicon():
 
 @app.route("/")
 def home():
-    return flask.render_template("homepage.html",
+    return flask.render_template("pages/home.html",
         playlist=os.environ["PLAYLIST"],
         episodes=EPISODES)
 
@@ -46,8 +46,9 @@ def episode(number):
         return "coming soon"
     else:
         episode = EPISODES[len(EPISODES) - number]
-        template = "episode-%s.html" % ("youtube" if "yt" in episode \
-                                        else "facebook")
+        template = "pages/episode/%s.html" % (
+            "youtube" if "yt" in episode else "facebook"
+        )
         return flask.render_template(template,
                                      number=number,
                                      episode=episode,
