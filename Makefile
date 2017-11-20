@@ -6,10 +6,10 @@ client:
 	node_modules/.bin/gulp watch
 
 server:
-	pipenv run flask run --host=0.0.0.0 --port=5001
+	flask run --host=0.0.0.0 --port=5001
 
 thumbs:
-	pipenv run python update_thumbs.py
+	python update_thumbs.py
 	mogrify -fuzz 10% -trim +repage static/thumbs/*
 
 deps:
@@ -21,5 +21,11 @@ production:
 	git reset --hard origin/master
 	make deps
 	node_modules/.bin/gulp build
-	pipenv run supervisorctl reread
-	pipenv run supervisorctl restart all
+	supervisorctl reread
+	supervisorctl restart all
+	curl \
+		-X DELETE "https://api.cloudflare.com/client/v4/zones/${CLOUDFLARE_ZONE}/purge_cache" \
+	 	-H "X-Auth-Email: ${CLOUDFLARE_EMAIL}" \
+		-H "X-Auth-Key: ${CLOUDFLARE_APIKEY}" \
+		-H "Content-Type: application/json" \
+		--data '{"purge_everything":true}'
