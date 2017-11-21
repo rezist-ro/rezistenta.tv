@@ -1,4 +1,4 @@
-export default function() {
+export default function menuControl() {
     const control = document.querySelector('[data-js-menu-control]');
     const menu = document.querySelector('[data-js-menu]');
     const CLASS_ACTIVE = 'is-active';

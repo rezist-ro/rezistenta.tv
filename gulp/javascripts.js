@@ -9,10 +9,10 @@ const tap = require('gulp-tap');
 const uglify = require('gulp-uglify');
 
 module.exports = {
-  clean: () => {
+  clean() {
     del(`${paths.dest.javascripts}`, {force: true});
   },
-  build: () => {
+  build() {
     return gulp.src(`${paths.source.javascripts}/*.js`, {read: false})
       .pipe(tap(function (file) {
         gutil.log('bundling ' + file.path);
