@@ -17,7 +17,7 @@ FB = facebook.GraphAPI(
 episodes = yaml.load(open("episodes.yaml").read())
 for index, episode in enumerate(episodes):
     number = len(episodes) - index
-    path = "static/thumbs/%d.jpeg" % number
+    path = "assets/thumbs/%d.jpeg" % number
     if os.path.isfile(path):
         continue
 

@@ -1,6 +1,5 @@
 # coding=utf-8
 import dateutil.parser
-import dotenv
 import flask
 import json
 import os
@@ -9,24 +8,23 @@ import urllib
 import yaml
 
 
-dotenv.load_dotenv(dotenv.find_dotenv())
-
-
 EPISODES = yaml.load(open("episodes.yaml").read())
 
 
-app = flask.Flask(__name__)
+app = flask.Flask(__name__,
+                  static_path="/assets",
+                  static_folder="assets")
 
 app.jinja_env.filters["strftime"] = \
     lambda str, fmt: dateutil.parser.parse(str).strftime(fmt)
 app.jinja_env.filters["quote_plus"] = lambda u: urllib.quote_plus(u)
 
 
-STATIC = os.path.join(app.root_path, "static")
+ASSETS = os.path.join(app.root_path, "assets")
 @app.route("/favicon.ico")
 def favicon():
     return flask.send_from_directory(
-        STATIC,
+        ASSETS,
         "favicon.ico",
         mimetype="image/icon")
 

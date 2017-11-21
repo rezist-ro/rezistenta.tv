@@ -5,5 +5,6 @@
 *.pyc
 supervisord.log
 supervisord.pid
-static/assets
+assets/js
+assets/css
 node_modules

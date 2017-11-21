@@ -10,7 +10,11 @@ server:
 
 thumbs:
 	python update_thumbs.py
-	mogrify -fuzz 10% -trim +repage static/thumbs/*
+	mogrify -fuzz 10% -trim +repage assets/thumbs/*
+
+osx-deps:
+	brew install pipenv
+	brew install imagemagick
 
 deps:
 	npm install
@@ -20,7 +24,7 @@ production:
 	git fetch
 	git reset --hard origin/master
 	make deps
-	node_modules/.bin/gulp build
+	gulp build
 	supervisorctl reread
 	supervisorctl restart all
 	curl \
