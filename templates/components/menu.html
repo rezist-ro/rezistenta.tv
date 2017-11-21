@@ -4,7 +4,7 @@
         <a class="menu__item-link" href="/episod/{{ episodes|length - loop.index + 1 }}"></a>
         <span class="menu__item-thumb">
             <span class="menu__item-number">#{{ episodes|length - loop.index + 1 }}</span>
-            <img src="/assets/nothumb.png" data-delay="{{ 5000 + 2000 * ((loop.index-1) / 4)|round(0, 'floor') }}" data-src="/assets/thumbs/{{ episodes|length - loop.index + 1 }}.jpeg" alt="Se încarcă">
+            <img src="/assets/nothumb.png" data-delay="{{ 4000 + 2000 * ((loop.index-1) / 4)|round(0, 'floor') }}" data-src="/assets/thumbs/{{ episodes|length - loop.index + 1 }}.jpeg" alt="Se încarcă">
         </span>
 
         <span class="menu__item-title">{{ episode.title }}</span>
