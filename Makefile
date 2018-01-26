@@ -24,7 +24,7 @@ production:
 	git fetch
 	git reset --hard origin/master
 	make deps
-	gulp build
+	node_modules/.bin/gulp build
 	supervisorctl reread
 	supervisorctl restart all
 	curl \
