@@ -38,7 +38,7 @@
     "browserify-incremental": "^3.1.1",
     "cssnano": "^3.10.0",
     "del": "^3.0.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-buffer": "0.0.2",
     "gulp-postcss": "^7.0.0",
     "gulp-sass": "^3.1.0",
